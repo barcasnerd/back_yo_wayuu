@@ -1,0 +1,24 @@
+{
+  "name": "yo_wayuu",
+  "version": "1.0.0",
+  "description": "servicio backend del prototipo solución de la aplicación web yo wayuu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barcasnerd/back_yo_wayuu.git"
+  },
+  "keywords": [
+    "pf",
+    "wayuu",
+    "backend"
+  ],
+  "author": "barcasnerd, lombardim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barcasnerd/back_yo_wayuu/issues"
+  },
+  "homepage": "https://github.com/barcasnerd/back_yo_wayuu#readme"
+}

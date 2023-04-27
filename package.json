@@ -4,7 +4,14 @@
   "description": "servicio backend del prototipo solución de la aplicación web yo wayuu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose",  
+    "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only src/main/start.ts dotenv_config_path=environmentVars/.process.env",
+    "types": "ts-node ./scripts/types.ts",
+    "build": "docker build -t smartsoftlabs/cav-ms-processesanddocumentsservice:0.1.0-dev --build-arg npm_cred='uPgBrHRzXXPxtFgo5XZ+mV8mNazWCUCOwmRCt0GM3Ck=' . && ( docker rmi smartsoftlabs/cav-ms-processesanddocumentsservice:latest || echo 'no latest tag found' ) && docker tag smartsoftlabs/cav-ms-processesanddocumentsservice:0.1.0-dev smartsoftlabs/cav-ms-processesanddocumentsservice:latest && docker push smartsoftlabs/cav-ms-processesanddocumentsservice:latest",
+    "export:entities": "cd scripts/entities-export && npm run upload -- ",
+    "export:artifacts": "echo 'Not implemented'",
+    "tsc": "tsc -p tsconfig.build.json",
+    "start": "node build/main/start.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +27,46 @@
   "bugs": {
     "url": "https://github.com/barcasnerd/back_yo_wayuu/issues"
   },
-  "homepage": "https://github.com/barcasnerd/back_yo_wayuu#readme"
+  "homepage": "https://github.com/barcasnerd/back_yo_wayuu#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.1",
+    "@types/minio": "^7.0.10",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^16.7.1",
+    "@types/supertest": "^2.0.11",
+    "jest": "^27.0.6",
+    "joi-openapi": "^3.1.1",
+    "joi-to-typescript": "^2.3.0",
+    "json-to-pretty-yaml": "^1.2.2",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "ts-node-dev": "^1.1.8",
+    "typeconv": "^1.7.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@smartsoft/auth-connector-admin": "^1.15.1",
+    "@smartsoft/backend-utils": "^3.2.0",
+    "@smartsoft/s3-object-connector": "^1.0.3",
+    "aws-sdk": "^2.1002.0",
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "dotenv-yaml": "^0.1.4",
+    "exceljs": "^4.3.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.2",
+    "minio": "^7.0.19",
+    "moment": "^2.29.4",
+    "multer": "^1.4.3",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.37"
+  }
 }

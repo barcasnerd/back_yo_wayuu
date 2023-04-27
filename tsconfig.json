@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+     "rootDir": "./",                                  /* Specify the root folder within your source files. */
+    "outDir": "./dist-test",
+    "esModuleInterop": true
+  },
+  "include": [
+    "__tests__",
+    "src/common/helpers/joi-extractor/joi.d.ts"
+  ]
+}

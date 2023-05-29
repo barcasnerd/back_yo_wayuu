@@ -1,12 +1,17 @@
-.idea/
-.vscode/
-node_modules/
-build/
-tmp/
-temp/*
-/coverage
-.env.yml
-/src/deleteobjects.ts
-/src/temp/*
-CAV - MS ProcessesAndDocuments.iml
-environmentVars/.process.env
+# Dependencias instaladas con NPM
+/node_modules
+
+# Archivos generados por TypeScript
+/dist
+
+# Archivos de configuración de IDEs
+.idea
+.vscode
+
+# Archivos de registro
+*.log
+
+# Otros archivos generados
+.DS_Store
+
+.env

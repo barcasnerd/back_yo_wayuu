@@ -1,12 +1,24 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-     "rootDir": "./",                                  /* Specify the root folder within your source files. */
-    "outDir": "./dist-test",
-    "esModuleInterop": true
-  },
-  "include": [
-    "__tests__",
-    "src/common/helpers/joi-extractor/joi.d.ts"
-  ]
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "sourceMap": true,
+        "outDir": "./dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "include": [
+        "src/**/*",
+        "./src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
 }

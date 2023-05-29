@@ -5,7 +5,7 @@ import { generateAvatarLink } from "../utils/user.utils";
 
 export async function getAllUsers(where?: { username: string; }): Promise<User[]> {
     const userRepository = getRepository(User);
-    const users = await userRepository.find({ where });
+    const users = await userRepository.find();
     return users;
 }
 
@@ -46,7 +46,7 @@ export async function getUserByEmailOrUsername(email: string, username: string):
 
 
 
-export async function createUser(data: { email: string, password: string, name: string, lastName: string }): Promise<User> {
+export async function createUser(data: { email: string, password: string, name: string, lastName: string, progresoCurso1?: number, notaCurso1?: number, notaCurso2?: number, notaCurso3?: number, progresoCurso2?: number, progresoCurso3?: number }): Promise<User> {
 
     let avatar = "https://cdn-icons-png.flaticon.com/512/1/1247.png";
 
@@ -61,6 +61,25 @@ export async function createUser(data: { email: string, password: string, name: 
     let userEntity = <User>data;
     let user = await userRepository.save(userEntity);
 
+    if (data.progresoCurso1 !== undefined) {
+        user.progresoCurso1 = data.progresoCurso1;
+    }
+    if (data.progresoCurso2 !== undefined) {
+        user.progresoCurso2 = data.progresoCurso2;
+    }
+    if (data.progresoCurso2 !== undefined) {
+        user.progresoCurso2 = data.progresoCurso2;
+    }
+    if (data.notaCurso1 !== undefined) {
+        user.notaCurso1 = data.notaCurso1;
+    }
+    if (data.notaCurso2 !== undefined) {
+        user.notaCurso2 = data.notaCurso2;
+    }
+    if (data.notaCurso3 !== undefined) {
+        user.notaCurso3 = data.notaCurso3;
+    }
+    user = await userRepository.save(userEntity);
     let saved = await userRepository.findOne(user.id);
     return saved!;
 }

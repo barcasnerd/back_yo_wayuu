@@ -1,5 +1,8 @@
 import bcrypt from "bcrypt";
 import { getDayOfYear } from "date-fns";
+import { getRepository } from "typeorm";
+import { User } from "../models/user.model";
+import { createUser } from "../use-cases/user.use-case";
 
 /**
  * Función para cifrar una contraseña.
@@ -61,4 +64,39 @@ export function sameDayOfYear(date1: string, date2: string): boolean {
   const dayOfYear1 = getDayOfYear(new Date(date1));
   const dayOfYear2 = getDayOfYear(new Date(date2));
   return dayOfYear1 === dayOfYear2;
+}
+
+export async function generateDefaultData() {
+  await createUser({
+    email: "jebarcasnegras@uninorte.edu.co",
+    password: "contraseña",
+    name: "Jair ",
+    lastName: "Barcasnegras",
+    progresoCurso1: 100,
+    notaCurso1: 4.8
+  });
+
+  await createUser({
+    email: "lombardim@uninorte.edu.co",
+    password: "contraseña",
+    name: "Miguel ",
+    lastName: "Lombardi",
+    progresoCurso1: 100,
+    notaCurso1: 4.5,
+    progresoCurso2: 50,
+  });
+
+  await createUser({
+    email: "elsanti@gmail.com",
+    password: "contraseña",
+    name: "Santi",
+    lastName: "Vargas"
+  });
+
+  await createUser({
+    email: "ambg@hotmail.com",
+    password: "contraseña",
+    name: "Amelia",
+    lastName: "García"
+  });
 }

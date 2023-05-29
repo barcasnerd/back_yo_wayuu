@@ -26,8 +26,8 @@ router.get("/:id", async (req, res) => {
 
 router.patch("/:emailOrId", async (req, res) => {
     const emailOrId = req.params.emailOrId;
-    const { password, lastName, name, string, progresoCurso1, notaCurso1, notaCurso2, notaCurso3, progresoCurso2, progresoCurso3 } = req.body;
-    const user = await editUser(parseInt(`${emailOrId}`), { password, lastName, name, progresoCurso1, notaCurso1, notaCurso2, notaCurso3, progresoCurso2, progresoCurso3 });
+    const { password, lastName, name, string, progresoCurso1, notaCurso1, notaCurso2, notaCurso3, progresoCurso2, progresoCurso3, progresoCurso4, notaCurso4, notaCurso5, notaCurso6, progresoCurso5, progresoCurso6 } = req.body;
+    const user = await editUser(parseInt(`${emailOrId}`), { password, lastName, name, progresoCurso1, notaCurso1, notaCurso2, notaCurso3, progresoCurso2, progresoCurso3, progresoCurso4, notaCurso4, notaCurso5, notaCurso6, progresoCurso6, progresoCurso5 });
     if (user == undefined) return res.status(404).json({ status: "error", message: "user not found" });
     return res.status(200).json({
         status: "success",

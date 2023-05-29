@@ -35,6 +35,25 @@ export class User {
     @Column('float', { nullable: true, default: 0.0 })
     notaCurso3?: number;
 
+    @Column({ nullable: true, default: 0 })
+    progresoCurso4?: number;
+
+    @Column('float', { nullable: true, default: 0.0 })
+    notaCurso4?: number;
+
+    @Column({ nullable: true, default: 0 })
+    progresoCurso5?: number;
+
+    @Column('float', { nullable: true, default: 0.0 })
+    notaCurso5?: number;
+
+    @Column({ nullable: true, default: 0 })
+    progresoCurso6?: number;
+
+    @Column('float', { nullable: true, default: 0.0 })
+    notaCurso6?: number;
+
+
     @CreateDateColumn()
     createdAt!: Date;
 

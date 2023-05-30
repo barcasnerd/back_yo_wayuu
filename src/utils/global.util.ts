@@ -77,8 +77,8 @@ export async function generateDefaultData() {
   });
 
   await createUser({
-    email: "lombardim@uninorte.edu.co",
-    password: "contraseña",
+    email: "admin@admin.com",
+    password: "admin12345",
     name: "Miguel ",
     lastName: "Lombardi",
     progresoCurso1: 100,
